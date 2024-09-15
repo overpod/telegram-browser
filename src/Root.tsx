@@ -1,8 +1,12 @@
 import { FC, useEffect } from 'react';
 import { SDKProvider, useLaunchParams } from '@telegram-apps/sdk-react';
+import { retrieveLaunchParams } from '@telegram-apps/sdk';
 
+import { loadLocale } from './i18n/i18n-util.sync';
+import TypesafeI18n from './i18n/i18n-react';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { App } from './App';
+import { Locales } from './i18n/i18n-types';
 
 const ErrorBoundaryError: FC<{ error: unknown }> = ({ error }) => (
   <div>
@@ -29,10 +33,21 @@ export const Root: FC = () => {
     }
   }, [debug]);
 
+  const { initData } = retrieveLaunchParams();
+
+  const getLocale = (localeString?: string): Locales =>
+    localeString === 'ru' ? 'ru' : 'en';
+
+  const locale = getLocale(initData?.user?.languageCode);
+
+  loadLocale(locale);
+
   return (
     <ErrorBoundary fallback={ErrorBoundaryError}>
       <SDKProvider acceptCustomStyles debug={debug}>
-        <App />
+        <TypesafeI18n locale={locale}>
+          <App />
+        </TypesafeI18n>
       </SDKProvider>
     </ErrorBoundary>
   );

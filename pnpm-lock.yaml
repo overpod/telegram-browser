@@ -11,6 +11,9 @@ importers:
       '@telegram-apps/react-router-integration':
         specifier: ^1.0.1
         version: 1.0.1(@telegram-apps/sdk@1.1.3)(@types/react@18.3.5)(react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      '@telegram-apps/sdk':
+        specifier: ^1.1.3
+        version: 1.1.3
       '@telegram-apps/sdk-react':
         specifier: ^1.1.3
         version: 1.1.3(@types/react@18.3.5)(react@18.3.1)
@@ -26,6 +29,9 @@ importers:
       react-router-dom:
         specifier: ^6.26.2
         version: 6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      typesafe-i18n:
+        specifier: ^5.26.2
+        version: 5.26.2(typescript@5.6.2)
     devDependencies:
       '@babel/preset-react':
         specifier: ^7.24.7
@@ -2119,6 +2125,12 @@ packages:
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
+
+  typesafe-i18n@5.26.2:
+    resolution: {integrity: sha512-2QAriFmiY5JwUAJtG7yufoE/XZ1aFBY++wj7YFS2yo89a3jLBfKoWSdq5JfQYk1V2BS7V2c/u+KEcaCQoE65hw==}
+    hasBin: true
+    peerDependencies:
+      typescript: '>=3.5.1'
 
   typescript-eslint@8.5.0:
     resolution: {integrity: sha512-uD+XxEoSIvqtm4KE97etm32Tn5MfaZWgWfMMREStLxR6JzvHkc2Tkj7zhTEK5XmtpTmKHNnG8Sot6qDfhHtR1Q==}
@@ -4471,6 +4483,10 @@ snapshots:
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
+
+  typesafe-i18n@5.26.2(typescript@5.6.2):
+    dependencies:
+      typescript: 5.6.2
 
   typescript-eslint@8.5.0(eslint@9.10.0)(typescript@5.6.2):
     dependencies:
